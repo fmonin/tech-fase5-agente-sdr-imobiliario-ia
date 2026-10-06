@@ -1,0 +1,11 @@
+[
+  {"id": "COR001", "nome": "Pedro Almeida", "zonas_atuacao": ["Zona Leste"], "email": "pedro.almeida@imobiliariatech.com.br", "telefone": "(11) 98888-0001"},
+  {"id": "COR002", "nome": "Joaquim Ribeiro", "zonas_atuacao": ["Zona Sul"], "email": "joaquim.ribeiro@imobiliariatech.com.br", "telefone": "(11) 98888-0002"},
+  {"id": "COR003", "nome": "Fernanda Souza", "zonas_atuacao": ["Zona Sul"], "email": "fernanda.souza@imobiliariatech.com.br", "telefone": "(11) 98888-0003"},
+  {"id": "COR004", "nome": "Camila Duarte", "zonas_atuacao": ["Zona Oeste"], "email": "camila.duarte@imobiliariatech.com.br", "telefone": "(11) 98888-0004"},
+  {"id": "COR005", "nome": "Rafael Nogueira", "zonas_atuacao": ["Zona Oeste"], "email": "rafael.nogueira@imobiliariatech.com.br", "telefone": "(11) 98888-0005"},
+  {"id": "COR006", "nome": "Beatriz Lima", "zonas_atuacao": ["Zona Leste"], "email": "beatriz.lima@imobiliariatech.com.br", "telefone": "(11) 98888-0006"},
+  {"id": "COR007", "nome": "Marcos Teixeira", "zonas_atuacao": ["Zona Norte"], "email": "marcos.teixeira@imobiliariatech.com.br", "telefone": "(11) 98888-0007"},
+  {"id": "COR008", "nome": "Juliana Rocha", "zonas_atuacao": ["Zona Central"], "email": "juliana.rocha@imobiliariatech.com.br", "telefone": "(11) 98888-0008"},
+  {"id": "COR009", "nome": "Ricardo Moura", "zonas_atuacao": ["Investimentos"], "email": "ricardo.moura@imobiliariatech.com.br", "telefone": "(11) 98888-0009"}
+]

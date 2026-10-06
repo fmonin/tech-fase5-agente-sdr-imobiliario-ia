@@ -1,0 +1,106 @@
+{
+ "_instrucoes": "Tabela de indicadores de mercado usada pelo agente para investidores. Atualize manualmente (sugestão: 1x por mês, após a divulgação do Índice FipeZAP e de cada reunião do Copom). Taxas em % ao ano; preços em R$/m². Após editar, reinicie o Streamlit.",
+ "data_referencia": "setembro/2026",
+ "atualizado_em": "2026-10-03",
+ "cidade": "São Paulo",
+ "juros": {
+  "selic_aa": 13.75,
+  "selic_fonte": "Copom/Banco Central — decisão de 16/09/2026 (próxima reunião: 03-04/11/2026)",
+  "cdi_aa": 13.65,
+  "cdi_fonte": "B3 — taxa DI, setembro/2026"
+ },
+ "inflacao": {
+  "ipca_12m": 4.22,
+  "igpm_12m": 2.16,
+  "fonte": "IBGE (IPCA) e FGV (IGP-M), 12 meses até agosto/2026, conforme Informe FipeZAP de agosto/2026"
+ },
+ "fipezap": {
+  "referencia": "agosto/2026",
+  "rentabilidade_aluguel_cidade_aa": 6.42,
+  "rentabilidade_aluguel_media_36_cidades_aa": 6.14,
+  "aluguel_m2_cidade": 65.36,
+  "variacao_aluguel_cidade_12m": 5.74,
+  "venda_m2_cidade": 12143,
+  "variacao_venda_cidade_12m": 3.63,
+  "fontes": [
+   "Índice FipeZAP Locação Residencial — agosto/2026 (downloads.fipe.org.br/indices/fipezap/fipezap-202608-residencial-locacao.pdf)",
+   "Índice FipeZAP Venda Residencial — agosto/2026 (downloads.fipe.org.br/indices/fipezap/fipezap-202608-residencial-venda.pdf)"
+  ]
+ },
+ "bairros": {
+  "Pinheiros": {
+   "aluguel_m2": 99.6,
+   "variacao_aluguel_12m": 7.1,
+   "venda_m2": 18219,
+   "variacao_venda_12m": -0.1
+  },
+  "Itaim Bibi": {
+   "aluguel_m2": 94.0,
+   "variacao_aluguel_12m": 0.6,
+   "venda_m2": 20039,
+   "variacao_venda_12m": 3.8
+  },
+  "Moema": {
+   "aluguel_m2": 84.8,
+   "variacao_aluguel_12m": 4.5,
+   "venda_m2": 16423,
+   "variacao_venda_12m": 5.1
+  },
+  "Jardins": {
+   "aluguel_m2": 82.6,
+   "variacao_aluguel_12m": 0.6,
+   "venda_m2": 17945,
+   "variacao_venda_12m": 7.2
+  },
+  "Paraíso": {
+   "aluguel_m2": 81.8,
+   "variacao_aluguel_12m": 6.7,
+   "venda_m2": 13996,
+   "variacao_venda_12m": 1.8
+  },
+  "Bela Vista": {
+   "aluguel_m2": 74.4,
+   "variacao_aluguel_12m": 3.1,
+   "venda_m2": 12515,
+   "variacao_venda_12m": 2.8
+  },
+  "Vila Mariana": {
+   "aluguel_m2": 72.4,
+   "variacao_aluguel_12m": -2.6,
+   "venda_m2": 14806,
+   "variacao_venda_12m": 0.2
+  },
+  "Perdizes": {
+   "aluguel_m2": 69.2,
+   "variacao_aluguel_12m": 6.8,
+   "venda_m2": 13357,
+   "variacao_venda_12m": 4.3
+  },
+  "Vila Andrade": {
+   "aluguel_m2": 53.5,
+   "variacao_aluguel_12m": 5.6,
+   "venda_m2": 8360,
+   "variacao_venda_12m": 0.9
+  },
+  "Santana": {
+   "aluguel_m2": 49.1,
+   "variacao_aluguel_12m": 9.8,
+   "venda_m2": 9183,
+   "variacao_venda_12m": 5.1
+  },
+  "Mooca": {
+   "aluguel_m2": 53.0,
+   "venda_m2": 9300,
+   "fonte": "VivaReal/ZAP Imóveis, jul/2026 (via Castan Imóveis)"
+  },
+  "Tatuapé": {
+   "aluguel_m2": 44.0,
+   "venda_m2": 10253,
+   "fonte": "aluguel: Índice FipeZAP fev/2026 (via Aluguel SP); venda: Proprietário Direto, out/2026"
+  },
+  "Vila Prudente": {
+   "aluguel_m2": 36.0,
+   "fonte": "Índice FipeZAP fev/2026 (via Aluguel SP)"
+  }
+ }
+}

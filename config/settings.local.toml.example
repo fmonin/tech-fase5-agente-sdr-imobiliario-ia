@@ -1,0 +1,16 @@
+# =============================================================================
+# Ajustes SÓ DA SUA MÁQUINA — copie para "settings.local.toml" (fora do Git).
+# Sobrescreve config/settings.toml. NÃO coloque chaves/tokens aqui (use o .env).
+# =============================================================================
+
+# Demonstração ao vivo: follow-up e pós-visita em minutos, não em horas.
+[followup]
+minutos_sem_resposta = 2
+intervalo_verificacao_minutos = 1
+
+[pos_visita]
+horas_apos_visita = 0
+
+# Para desenvolver sem gastar créditos do Azure:
+# [llm]
+# provider = "mock"

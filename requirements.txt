@@ -1,0 +1,32 @@
+# --- Núcleo do agente ---
+langgraph==0.2.60
+langchain==0.3.13
+langchain-openai==0.2.14
+langchain-core==0.3.28
+
+# --- Azure ---
+openai==1.58.1
+
+# --- Interface ---
+streamlit==1.40.2
+pandas==2.2.3
+plotly==5.24.1
+
+# --- RAG (busca semântica simples, sem depender de serviço externo) ---
+scikit-learn==1.5.2
+numpy>=2.0.0
+# Embeddings locais (RAG por significado, grátis). Instala o PyTorch (CPU).
+sentence-transformers>=3.3
+
+# --- Bot Telegram (diferencial, opcional) ---
+python-telegram-bot==21.9
+
+# --- Utilidades ---
+python-dotenv==1.0.1
+pydantic==2.10.4
+httpx==0.28.1
+
+# --- Testes ---
+pytest==8.3.4
+# Leitura do config/settings.toml (Python 3.11+ já traz o tomllib)
+tomli>=2.0; python_version < "3.11"

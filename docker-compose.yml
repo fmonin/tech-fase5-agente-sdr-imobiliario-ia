@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  agente-sdr:
+    build: .
+    container_name: agente_sdr_imobiliario
+    ports:
+      - "8501:8501"
+    env_file:
+      - .env
+    volumes:
+      # Mantém os dados (SQLite, CRM simulado) fora do container,
+      # sobrevivendo a rebuilds.
+      - ./data:/app/data
+    restart: unless-stopped

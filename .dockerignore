@@ -1,0 +1,11 @@
+# Segredos e ajustes locais não entram na imagem (o .env é passado em tempo de execução)
+.env
+.env.*
+!.env.example
+config/settings.local.toml
+.venv/
+__pycache__/
+*.pyc
+data/*.db
+data/embeddings_cache.json
+data/telegram_sessoes.json

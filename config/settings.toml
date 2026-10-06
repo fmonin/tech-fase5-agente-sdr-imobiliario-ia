@@ -1,0 +1,60 @@
+# =============================================================================
+# Configurações do projeto — ESTE ARQUIVO VAI PARA O GIT.
+#
+# Regras:
+#   • NUNCA coloque chaves/tokens aqui (o app recusa iniciar se encontrar).
+#     Segredos ficam no .env (modelo: .env.example).
+#   • Ajustes só da sua máquina (ex.: tempos curtos para a demonstração)
+#     vão em config/settings.local.toml (fora do Git; modelo:
+#     config/settings.local.toml.example).
+#   • Qualquer valor pode ser sobrescrito por variável de ambiente (Docker,
+#     Azure) — o nome da variável está ao lado de cada item.
+#
+# Precedência: padrão no código < settings.toml < settings.local.toml < variáveis de ambiente/.env
+# =============================================================================
+
+[app]
+ambiente = "development"            # APP_ENV
+log_level = "INFO"                  # LOG_LEVEL
+
+[agente]
+nome = "Sr. Agim"                   # AGENTE_NOME — nome do agente no chat, no título e no pitch
+
+[llm]
+# "auto"  -> Azure OpenAI se houver AZURE_OPENAI_API_KEY no .env; senão Mock
+# "azure" -> sempre Azure OpenAI  |  "mock" -> sem custo, sem chave
+provider = "auto"                   # LLM_PROVIDER
+
+[azure_openai]
+# A chave (AZURE_OPENAI_API_KEY) fica no .env.
+endpoint = "https://llm-agente-imobilario-agim.openai.azure.com/"   # AZURE_OPENAI_ENDPOINT
+api_version = "2024-10-21"          # AZURE_OPENAI_API_VERSION
+deployment = "gpt-4.1-mini"         # AZURE_OPENAI_DEPLOYMENT_NAME
+embedding_deployment = ""           # AZURE_OPENAI_EMBEDDING_DEPLOYMENT (só se embeddings.provider = "azure")
+
+[embeddings]
+# RAG: "local" (sentence-transformers, grátis) | "azure" | "tfidf" (mais leve)
+provider = "local"                  # EMBEDDINGS_PROVIDER
+modelo_local = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"   # EMBEDDINGS_MODELO_LOCAL
+cache_path = "data/embeddings_cache.json"                                      # EMBEDDINGS_CACHE_PATH
+
+[azure_speech]
+# A chave (AZURE_SPEECH_KEY) fica no .env.
+region = "eastus"                   # AZURE_SPEECH_REGION
+voz = "pt-BR-AntonioNeural"         # AZURE_SPEECH_VOZ — voz neural (ex.: pt-BR-FranciscaNeural, feminina)
+responder_em_audio = true           # VOZ_RESPONDER_EM_AUDIO — se o cliente mandar áudio, o Sr. Agim responde também em áudio
+
+[followup]
+# Exemplo 3 do desafio: reengajar quem parou de responder.
+minutos_sem_resposta = 60           # FOLLOWUP_MINUTOS
+intervalo_verificacao_minutos = 5   # FOLLOWUP_INTERVALO_MINUTOS
+
+[pos_visita]
+horas_apos_visita = 2               # POS_VISITA_HORAS — quando perguntar "o que achou da visita?"
+
+[dados]
+database_path = "data/agente_sdr.db"                 # DATABASE_PATH
+imoveis_database_path = "data/imoveis.db"            # IMOVEIS_DATABASE_PATH
+imoveis_seed_json_path = "data/imoveis.json"         # IMOVEIS_SEED_JSON_PATH
+bairros_json_path = "data/bairros_sp.json"           # BAIRROS_JSON_PATH
+mercado_json_path = "data/mercado_investimento.json" # MERCADO_JSON_PATH

@@ -1,0 +1,45 @@
+# Ambientes
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+
+# Segredos (só chaves e tokens) — o modelo .env.example vai para o Git
+.env
+.env.*
+!.env.example
+
+# Configuração só desta máquina — config/settings.toml e o .example vão para o Git
+config/settings.local.toml
+
+# Dados gerados em tempo de execução
+data/*.db
+data/*.sqlite3
+data/crm_simulado.json
+logs/
+
+# IDEs
+.vscode/
+.idea/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# SO
+.DS_Store
+Thumbs.db
+
+# Cache de embeddings (gerado automaticamente)
+data/embeddings_cache.json
+
+# Sessões do bot do Telegram (chat -> lead)
+data/telegram_sessoes.json
+
+# Arquivos temporários e cópias de segurança gerados em execução
+data/*.db-journal
+data/*.db-wal
+data/*.db-shm
+data/*.corrompido*
+data/*.tmp
+*.tgz
