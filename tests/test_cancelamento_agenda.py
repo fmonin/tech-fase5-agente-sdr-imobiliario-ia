@@ -89,9 +89,10 @@ def test_saudacao_de_login_mostra_a_agenda(tmp_path):
 
 def test_migracao_de_banco_antigo(tmp_path):
     import sqlite3
+    from contextlib import closing
 
     db = tmp_path / "antigo.db"
-    with sqlite3.connect(db) as conexao:  # tabela no formato antigo, sem colunas de cancelamento
+    with closing(sqlite3.connect(db)) as conexao, conexao:  # tabela no formato antigo, sem colunas de cancelamento
         conexao.execute(
             "CREATE TABLE agendamentos (id TEXT PRIMARY KEY, lead_id TEXT NOT NULL, quando_sugerido TEXT NOT NULL,"
             " tipo TEXT NOT NULL, status TEXT NOT NULL, data_hora TEXT, cliente_cpf TEXT, cliente_nome TEXT,"

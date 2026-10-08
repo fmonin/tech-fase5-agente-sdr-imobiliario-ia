@@ -19,6 +19,7 @@ import sqlite3
 from pathlib import Path
 from typing import Optional
 
+from src.infrastructure.sqlite_conexao import conectar
 from src.domain.entities import Corretor
 from src.domain.interfaces import ICorretorRepository
 
@@ -49,10 +50,8 @@ class SqliteCorretorRepository(ICorretorRepository):
         # (ex.: o especialista em investimentos) entram sem apagar o banco.
         self._popular_a_partir_do_seed()
 
-    def _conectar(self) -> sqlite3.Connection:
-        conexao = sqlite3.connect(self._caminho_db)
-        conexao.row_factory = sqlite3.Row
-        return conexao
+    def _conectar(self):
+        return conectar(self._caminho_db, linhas_como_dict=True)
 
     def _popular_a_partir_do_seed(self) -> None:
         if not self._caminho_seed_json.exists():

@@ -76,7 +76,10 @@ def test_erro_de_digitacao_na_data(tmp_path):
 
     lead = servico.processar_mensagem(lead, "Quero fia 8 desse mes")
     assert "Esse horário funciona para você?" in lead.historico[-1].conteudo
-    assert agenda.listar_por_cliente("52998224725")[-1].data_hora.day == 8
+    # A proposta anterior fica cancelada; vale a que está em aberto (a lista vem ordenada
+    # por data, então a cancelada pode vir depois quando o horário sugerido cai no dia 9).
+    abertas = [a for a in agenda.listar_por_cliente("52998224725") if a.status != "cancelado"]
+    assert abertas[-1].data_hora.day == 8
 
     # Resposta incompreensível com proposta aberta: o Agendador pergunta de novo
     lead = servico.processar_mensagem(lead, "hmm talvez")

@@ -15,6 +15,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Optional
 
+from src.infrastructure.sqlite_conexao import conectar
 from src.domain.entities import Agendamento
 from src.domain.interfaces import IAgendaRepository
 
@@ -69,10 +70,8 @@ class SqliteAgendaRepository(IAgendaRepository):
                 if coluna not in existentes:
                     conexao.execute(f"ALTER TABLE agendamentos ADD COLUMN {coluna} {tipo}")
 
-    def _conectar(self) -> sqlite3.Connection:
-        conexao = sqlite3.connect(self._caminho_db)
-        conexao.row_factory = sqlite3.Row
-        return conexao
+    def _conectar(self):
+        return conectar(self._caminho_db, linhas_como_dict=True)
 
     def registrar(self, agendamento: Agendamento) -> None:
         with self._conectar() as conexao:

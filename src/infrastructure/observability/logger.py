@@ -14,9 +14,10 @@ from __future__ import annotations
 
 import json
 import logging
-import sqlite3
 from datetime import datetime
 from pathlib import Path
+
+from src.infrastructure.sqlite_conexao import conectar
 
 _CRIAR_TABELA = """
 CREATE TABLE IF NOT EXISTS eventos (
@@ -45,8 +46,8 @@ class EventoStore:
         with self._conectar() as conexao:
             conexao.execute(_CRIAR_TABELA)
 
-    def _conectar(self) -> sqlite3.Connection:
-        return sqlite3.connect(self._caminho)
+    def _conectar(self):
+        return conectar(self._caminho)
 
     def registrar_evento(self, nome: str, dados: dict) -> None:
         self._logger.info("evento=%s dados=%s", nome, dados)

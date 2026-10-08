@@ -14,13 +14,13 @@ normalizada.
 from __future__ import annotations
 
 import json
-import sqlite3
 from dataclasses import asdict
 from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Optional
 from uuid import uuid4
 
+from src.infrastructure.sqlite_conexao import conectar
 from src.domain.entities import (
     Agendamento,
     IntencaoLead,
@@ -48,8 +48,8 @@ class SqliteLeadRepository(ILeadRepository):
         with self._conectar() as conexao:
             conexao.execute(_CRIAR_TABELA)
 
-    def _conectar(self) -> sqlite3.Connection:
-        return sqlite3.connect(self._caminho)
+    def _conectar(self):
+        return conectar(self._caminho)
 
     def salvar(self, lead: Lead) -> None:
         dados_json = json.dumps(self._lead_para_dict(lead), ensure_ascii=False)

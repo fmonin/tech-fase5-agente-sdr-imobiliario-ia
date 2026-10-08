@@ -2,6 +2,7 @@
 nas respostas, sincronização JSON -> SQLite e escolha do imóvel em empate."""
 import json
 import sqlite3
+from contextlib import closing
 from pathlib import Path
 
 import pytest
@@ -72,7 +73,7 @@ def test_historico_para_o_llm_nao_tem_marcadores():
 
 def test_banco_antigo_e_sincronizado_com_o_json(tmp_path):
     db = tmp_path / "antigo.db"
-    with sqlite3.connect(db) as conexao:  # formato antigo: sem coluna fotos e com dado desatualizado
+    with closing(sqlite3.connect(db)) as conexao, conexao:  # formato antigo: sem coluna fotos e com dado desatualizado
         conexao.execute(
             "CREATE TABLE imoveis (id TEXT PRIMARY KEY, titulo TEXT NOT NULL, tipo_negocio TEXT NOT NULL,"
             " finalidade_investimento INTEGER NOT NULL, zona TEXT NOT NULL, bairro TEXT NOT NULL, preco REAL NOT NULL,"

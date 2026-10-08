@@ -14,6 +14,7 @@ Para um estudante iniciante:
 from __future__ import annotations
 
 import logging
+from pathlib import Path
 from dataclasses import dataclass
 
 from src.agents.agenda_query_agent import ConsultaAgendaAgent
@@ -84,7 +85,9 @@ def montar_container() -> AppContainer:
     )
     mapa_bairros = carregar_mapa_bairros(settings.bairros_json_path)
     busca_semantica = criar_busca_semantica(repositorio_imoveis, mapa_bairros)
-    crm = MockCRM()
+    # O CRM simulado fica ao lado do banco: em testes (banco temporário) ele
+    # também é temporário e nunca toca o data/crm_simulado.json real.
+    crm = MockCRM(Path(settings.database_path).parent / "crm_simulado.json")
     lead_repository = SqliteLeadRepository(settings.database_path)
     corretor_repository = SqliteCorretorRepository(caminho_db=settings.database_path)
     agenda_repository = SqliteAgendaRepository(caminho_db=settings.database_path)
